@@ -1,23 +1,276 @@
-* {
-  margin: 0px;
-  padding: 0px;
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5em;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;      
 }
 
-body {
-  padding: 10px;
+.container {
+  margin: 2em 0.5em 3em 0.5em;
+  padding: 2em;
+  background: white;
+}
+
+h1 {
+  color: #04b3ce;
+  font-size: 3em;
+  text-align: center;
+}
+
+.fourohfour{
+  text-align: center;
+}
+
+.fourohfour h1 {
+  font-size: 6em;
+}
+
+h2 {
+  color: #999;
+  font-size: 0.8em;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: -1.5em;
+  margin-bottom: 3em;
+}
+
+h3 {
+  color: #04b3ce;
+  margin-top: 3em;
+}
+
+h4 {
+  text-align: center;
+}
+
+#testui {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #04b3ce;
+  border-radius: 3px;
+  padding: 1em;
+  margin-bottom: 2em;
+  text-align: left;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-left {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-basis: calc(66% - 1em);
+}
+
+.form-right {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-basis: calc(33% - 1em);
+}
+
+@media (max-width: 620px) {
+  .form-fields {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 2em;
+  }
+}
+
+form h3 {
+  color: white;
+  margin-top: 0;
+  padding: 0.5em 0;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+form label {
+  color: white;
+}
+
+input, textarea {
+  border: none;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  margin: 0 0 0.5em 0;
+  padding: 0.3em;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.9em;
+}
+
+input[required],
+textarea[required] {
+  background-image: url("https://cdn.glitch.com/b39281f3-c76d-42e6-97c0-8105f809af4e%2Fasterisk2.png?1555316696692");
+  background-repeat: no-repeat;
+  background-size: 0.6em 0.65em;
+  background-position: top right;  
+  background-origin: content-box;      
+}
+
+input[type=checkbox] {
+  width: 0.85em;
+  height: 0.85em;
+  vertical-align: -0.05em;
+  margin-left: 1em;
+}
+
+button {
+  background: #04b3ce;
+  margin-top: 1em;
+  border: 2px solid #d5d4f9;
+  border-radius: 0.2em;
+  padding: 0.8em 1em;
+  color: #d5d4f9;
+  font-weight: 900;
+  font-size: 1em;
+  transition: all 200ms;
+  transition: box-shadow 50ms;
+}
+
+button:hover {
+  background: #d5d4f9;
+  color: #04b3ce;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+  box-shadow: none;
+}
+
+.border {
+  margin: 20px 100px 20px 100px;
 }
 
 .issue {
-  margin: 20px;
-  padding: 5px;
-  width: 60%;
-  border: 2px solid black;
+  background: #cef4cd;
+  border-radius: 3px;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+  text-align: center;  
 }
 
-.closed {
-  background-color: lightgrey;
+.issue.closed {
+  background: #eee;
 }
 
-.id {
-  font-size: 10.5px;
+.issue h3 {
+  font-size: 2em;
+  margin-top: 0;
+  text-align: center;
+}
+
+.issueId {
+  color: #666;
+  font-size: 0.8em;
+  margin-bottom: 1em;
+  margin-top: -2em;
+}
+
+.issue.closed .issueId::after {
+  content: "closed";
+  vertical-align: 2.5%;
+  color: #eee;           
+  background: #f98c86;
+  margin-left: 1em;
+  border-radius: 3px;
+  padding: 0 0.5em;
+}
+
+.description,
+.status {
+  margin-top: 0;
+  border-radius: 2px;
+  background: white;
+  padding: 0.3em;
+  min-height: 1.6em; 
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;;
+}
+
+.buttons button {
+  margin-left: 1em;
+  padding: 0.3em 1em;
+}
+
+.closeIssue {
+  color: red;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.closeIssue:hover {
+  color: blue;
+}
+
+.issue.closed .closeIssue {
+  display: none;
+}
+
+.deleteIssue {
+  background: none;
+  color: red;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.deleteIssue:hover {
+  color: blue;
+}
+
+.issueDetails {
+  border-radius: 0 0 3px 3px;
+  padding: 0.5em 1em;
+  font-size: 0.8em;
+  color: #666;
+}
+
+.issue.closed .issueDetails {
+  background: #e8e8e8;
+}
+
+pre {
+  background: #f7f7f7;
+  border-left: 0.5em solid #04b3ce;
+  border-radius: 0.3em;
+  padding: 1em;
+  overflow: auto;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+code {
+  background: #f7f7f7;
+  padding: 0.2em 1.5em;
+  border-radius: 0.3em;
+}
+
+footer {
+  margin-top: auto;    
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1.5em;
 }
